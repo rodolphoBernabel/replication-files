@@ -1,0 +1,324 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+\usepackage{tikz}
+\usepackage{endnotes}
+\let\footnote=\endnote
+\usepackage[dvipsnames]{xcolor}
+\usepackage{qtree}
+\usepackage{tikz-qtree}
+\usetikzlibrary{calc}
+\usetikzlibrary{positioning}
+\usepackage{color}
+\usepackage{setspace}
+\usepackage[left=2cm, right=2cm, top=2cm, bottom=2cm]{geometry}
+\usepackage[]{hyperref}
+\usepackage[authoryear]{natbib}
+\usepackage{graphicx}
+\exhyphenpenalty=1000
+\hyphenpenalty=1000
+\widowpenalty=1000
+\clubpenalty=1000
+\exhyphenpenalty=1000
+\hyphenpenalty=1000
+\widowpenalty=1000
+\clubpenalty=1000
+
+\hypersetup{pdftitle={Entering the Underworld: A Formal Model of Prison Gang Recruitment},pdfauthor={Danilo Freire},pdfsubject={},pdfkeywords={Brazil, game theory, prison gangs, PCC, organised crime},linkcolor=black, citecolor=black, urlcolor=black, breaklinks=true, colorlinks=true}
+
+\title{Entering the Underworld:\\ A Formal Model of Prison Gang Recruitment}
+
+\author{Danilo Freire}
+
+\date{8th June 2015}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+\doublespacing
+
+This paper offers a game-theoretical model to analyse both the incentives for a criminal to join a prison gang and how those groups are able to hire competent criminals under conditions of uncertainty and information asymmetry. The model suggests three findings. First, it stresses the role of informers in the gang's recruitment process. Informers allow the prison gang to keep entry costs low, so the gang can attract a larger pool of applicants and still be able to select competent candidates. Second, it indicates that there are cases in which joining a prison gang is not the best option for an inmate. When the detainee has enough skills to endure prison conditions without gang support, the prisoner might be better off if he or she decides to ``go it alone'' and devote his or her ability exclusively to survival. Third, the model confirms the idea that the prison gang is not only a ``school of crime'', but perhaps most importantly, it is a highly effective screening device. Prison gangs increase the welfare of the inmates by providing an extremely valuable public good: reliable information. Policy implications and possible extensions of the current study are also discussed.
+
+\vspace{.5cm}
+\noindent
+\textsc{Keywords:} Brazil, game theory, prison gangs, Primeiro Comando da Capital, organised crime
+\end{abstract}
+
+\newpage
+
+\section{Introduction}
+\doublespacing
+
+Criminal games are played for very high stakes \citep[p. 2]{dixit2011game}. In the underworld, rules are violently enforced \citep{liebling2012social, von2004organized}, mistakes are rarely tolerated, and commitments usually have prohibitive exit costs \citep{campana2013cooperation}. Prisons take these problems to the extreme \citep{clemmer1940prison, sykes1958society}. Since prisoners share the same physical space for long periods of time, their interactions are maximised and the chances of fleeing and escaping retaliation are notably low \citep{skarbek2011governance}. Moreover, prisoners have their schedules tightly controlled by correctional officers, which imposes clear limits on the detainees' ability to meet and negotiate \citep[p. 7]{skarbek2014social}. Since communication between inmates is limited, they have to rely upon costly signals, which are by definition expensive and risky, to convey a message \citep{gambetta2009codes}.
+
+It is also obvious that prisoners cannot ask the authorities to solve their issues even if they wanted them to. First, the penal system has limited resources, so surveillance is usually imperfect. There is only a very small guarantee that the guards will be able to protect the inmates as well as they should \citep[p. 20]{skarbek2014social}. In the developing world, where prisons are overcrowded and officers are known to be corrupt \citep[]{darke2013inmate, lemgruber2005brazilian, silveira2007realidade}, this is indeed the normal state of affairs. Second, even assuming that the penal authorities are honest and well-funded, officers may not have enough information on the illegal activities carried out by prisoners, such as drug selling or requests for target killings \citep[]{kauffman1988prison}, to protect inmates efficiently. Hence, they would be unable to mediate or prevent conflicts related to black markets. Additionally, being seen as an informer (``snitch'') in the prison greatly increases the chances that an inmate will suffer severe retaliations \citep[]{aakerstrom1986outcasts}. In this sense, it is unlikely that convicts will ask the authorities for help. What would then be the best strategy for an inmate to adopt?
+
+As the literature suggests, prison gangs are to a large extent a response to these problems \citep[]{camp1985prison, fleisher2001overview}. Gangs reduce transaction costs, enforce physical and property rights, and act as brokers in correction facilities \citep{buentello1991prison, delisi2004gang, skarbek2011governance}. Nevertheless, prison organisations also have their own interests, and they need to maximise their strength by recruiting ``the most competetent'' prisoners in the underworld. This is definitely not an easy task. 
+
+In this article I present a formal model to address these questions. My intention here is to devise an analytical framework that explains a criminal's decision to join a prison gang and how the organisation reacts to the potential new members' intentions.
+
+\section{The Model}
+
+The model consists of two players, a prisoner $P$ and a prison gang leadership $G$.\footnote{The notation I employ here is similar to the one used in \cite{lessing2014cddrl}.} Since the purpose of the present exercise is to evaluate the likelihood of $P$ joining a gang, I shall assume that $G$ is already present in a given prison. Therefore, $G$ moves first, and sets a cost $\tau$ to be paid by the prisoner. This a very common gang practice: not only are the needs for financial contributions specified in several gang constitutions \citep[]{leeson2010criminal}, but there is plenty of qualitative evidence suggesting that gang members regularly contribute with a weekly or monthly fee to support the organisation \citep[e.g.][]{varese2001russian, gambetta1996sicilian}. Also, gang members are expected to engage in the group's risky activities, so other important non-monetary costs are also captured by $\tau$. Here I assume that such costs are known by $P$, either because the information is described in the gang's statute, or because it has been disseminated by the inmates in a gang-controlled prison.
+
+The prisoner can either comply ($C$) and bear the costs $\tau$, or defect and be independent in the prison ($D$). $G$ plays next, and after assessing whether $P$ meets its criteria or not, chooses whether to accept ($A$) or reject ($R$) the new member, and payoffs are realised.
+
+\begin{figure}[htp]
+\centering
+\begin{tikzpicture}	[solid node/.style={fill,circle,inner sep=1.5pt}, hollow node/.style={fill,circle,inner sep=1pt}, scale=1.5,font=\footnotesize]
+\tikzstyle{level 1}=[level distance=15mm,sibling distance=40mm]
+\tikzstyle{level 2}=[level distance=15mm,sibling distance=30mm]
+\tikzstyle{level 3}=[level distance=15mm,sibling distance=20mm]
+\node (root)[solid node, label=above:{$G$}] {}  
+    child {node (a1) [solid node, label=right:{$P$}] {} 
+    child{node[hollow node, label=below:{$\left(0,0\right)$}]{} edge from parent node[left]{$D$}}
+   child{node(3)[solid node, label=right:{$G$}]{} 
+    child{node(4)[hollow node, label=below:{$\left(0,0\right)$}]{} edge from parent node[left]{$R$}}
+    child{node(5)[hollow node, label=below:{$\left(1,1\right)$}]{} edge from parent node[right]{$A$}}
+    edge from parent node[right]{$C$}
+	}
+};
+\node [draw=none, shift={(.3cm,-1cm)}] (root) {$\tau$};
+	\end{tikzpicture}
+\caption{Gang Prisoner Acceptance}
+\end{figure}
+
+Let $k$ be a measure of the gang's capacity to ameliorate prison conditions. I assume that the true value of $k$ is known to both the prisoner and the gang, which implies that the players have a perfect understanding of how $G$ can help $P$ by providing both public and club goods. The assumption is reasonable. The benefits given by the gangs, such as protection and financial assistance, are widely advertised in prisons and are precisely the reason why inmates join such a group \citep{fleisher2001overview, trammell2012enforcing}.
+
+Let $s \sim U \left[0,1\right]$ be a series of skills that are useful for prison life. These can be physical strength or other abilities such as strategic thinking, technical expertise or a dense personal network. The prisoner knows his own value $s_P$, whereas $G$ only knows that that $s$ follows a uniform distribution. The utility of $s_P$ increases monotonically, as more skills are always preferred to less. 
+
+The expected net utility can thus be represented as a simple difference between the benefit ($b$) of being in a prison gang and the benefit of remaining independent. As we have seen above, the costs to a prisoner of being in a gang are positive, since the prisoner has to pay a monthly monetary tax to the gang and follow the group's rules. 
+
+\begin{align}
+b_P\left(s,1\right) - b_P\left(s,0\right) &\geq 0\\
+c_P\left(s,1\right) - c_P\left(s,0\right) &\geq 0
+\end{align}
+
+Nevertheless, there exists a value $\overline{s}$ such that
+
+\begin{align}
+b_P\left(s,1\right) - c_P\left(s,1\right) &\leq b_P\left(s,0\right) - c_P\left(s,0\right)
+\end{align}
+
+If $s_P \geq \overline{s}$. That is, above a given value of $s$ it is better for a prisoner to ``go it alone.''\footnote{Obviously, the opposite is true whether $s_P < \overline{s}$.} If $P$ has enough skills to survive in prison by himself or herself, $P$ might ponder if it is really profitable for him or her to join any kind of group. For prisoners who are below this threshold, becoming a member is a dominant position. The benefits are therefore $s_P$ = $1$ if the prisoner decides to comply with the gang's cost $\tau$ and the group accepts him as new member ($A_P$ = $C$ and $A_G$ = $A$). In contrast, $s_P$ = $0$ when $A_P$ = $D$ or $A_G$ = $R$, that is, when the prisoner defects or the gang refuses to have him or her in its ranks. 
+As for the gang, there is a low threshold $\underline{s}$ under which any member acceptance implies more costs than benefits to the gang. Any prisoner below this value is likely to become a burden to $G$ since he will not be competent enough to fulfil the tasks demanded by the group, and might lower collective welfare by increasing other members' chances of being punished by the police. Therefore, there exists $\underline{s} \in \left[0, 1\right]$ such that
+
+\begin{align}
+b_G\left(s,1\right) - c_G\left(s,1\right) &\leq b_G\left(s,0\right) - c_G\left(s,0\right)
+\end{align}
+
+When $s\leq \underline{s}$, and the reverse situation is when $s \geq \underline{s}$. $G$ will only choose a member that maximises its utility (a high value of $s$), and reject every prisoner it sees as unfit for the job due to a lack of competence in criminal activities.
+
+\subsection{Perfect Information Game}
+
+Assuming that the prisoner and the gang have complete information, there are three possible equilibria to this game. When $s_P \in \left[0, \underline{s} \right]$, $P$ will comply and try join the group ($C$), while $G$ will refuse him ($R$). If $s_P \in \left[\underline{s}, \overline{s} \right]$, the equilibrium is ($C$, $A$), in which $P$ joins the group and $G$ accepts him. Finally, if $s_P \in \left[\overline{s}, 1 \right]$ the equilibrium is ($D$, $A$), and $P$ will remain alone. 
+
+This situation would be valid if $G$ could easily assess the qualities of every potential member. While prison gangs do their best to obtain credible information on the convicts, it is likely that a perfect information game would only be a good approximation to the facts in a very selected number of cases. It is true that prison records provide a reliable source of information on individuals, and gangs often have access to those data via inmates and sometimes even prison staff members \citep[]{gambetta2009codes}. Not only this is a long, costly task, but may not be feasible in some circumstances. High security prisons makes this comprehensive evaluation process virtually impossible. In such an environment, the gang cannot be completely sure of the inmate's past behaviour and present intentions, and since interactions between a potential gang member and their ``godfathers in crime'' are relatively few, criminals have difficulties advertizing their credentials to the gang. Recruitment with perfect information is therefore unlikely to happen.
+
+Regarding this point, I now discuss the recruitment process of a prison gang under conditions of information asymmetry. This is a more realistic assumption. The gang's requirement that every prospective member should receive the approval of other current members before joining the gang is proof that the gang needs to cross-check information before taking a decision. Thus, the \textit{informants} play a crucial role in a prison gang's recruitment process, which is indeed to be expected, since an inmate's commitment to the gang is usually for life. Also, informants have strong incentives to provide reliable information to the gangs, simply because they are held accountable for future actions of their ``godson''. Bad selection choices can not only cost prestige, but at the extreme lead to severe punishments such as fines and expulsion from the group. 
+
+\subsection{Imperfect Information Game}
+
+The next game has the same two players, a prisoner $P$ and a prison gang $G$. However, I add a third figure that does not take any action in the game \textit{per se}, but is of extreme importance to the model: the \textit{informer} ($I$). Here, $I$ represents the current gang member who is in charge of assessing the criminal qualities of a potential candidate. While $I$ has several reasons to provide credible information to the gang, he can also incur errors and make wrong judgements about a prisoner's abilities. The information about the prisoner can thus be true ($T$) or false ($F$)\footnote{By false I do not imply that incorrect information given by $I$ is intentionally manipulated. It can be merely the result of miscalculations, and the term here has no pejorative meaning.}.
+
+To reiterate, the game goes as follows.
+
+\begin{enumerate}
+\item Nature chooses the skills of the prisoner $P$, with $s \sim U[0,1]$.
+\item The gang leader chooses $\tau$.
+\item The prisoner decides to apply or not to the gang. If not, the game ends. If yes, the game follows to the next stage.
+\item The gang leader then decides to accept or reject the proposal. The game ends.
+\end{enumerate}
+
+In the present model, I assume that the gang will decide whether it accepts the candidate or not based upon his additional productivity. Therefore, the gang will add a new member if and only if
+
+\begin{align}
+\alpha \left( n + 1 \right) \geq \alpha \left(n\right)
+\end{align}
+
+Where $\alpha$ is the productivity function and $n$ is the current number of members in the gang. We assume hereafter that there exists a number of prisoners that optimises $\alpha(n)$, and we denote it as $\alpha^*$.\footnote{Notice further that the productivity can be expressed by a simple function that has limit $1$ when $n \rightarrow \infty$ and limit $0$ when $n \rightarrow 0$. We assume that this function has a maxima in $n^*$ as well. An example could be $(an)^\frac{b}{n}$, for parameters $a$ and $b$ given.}
+
+The game can be solved via backward induction. The prisoner applies when
+
+\begin{align}
+U_P [Comply] \geq U_P [Defect]
+\end{align}
+
+The utility of joining is equal to
+
+\begin{align}
+\alpha (n+1) s - \tau
+\end{align}
+
+Where $\alpha (n+1)$ is the marginal productivity of the new member to the gang, $s$ is the skill of the prisoner and $\tau$ is the fee (monetary and non-monetary) imposed by $G$ on $P$. The prisoner's utility for not joining the gang is simply $s$, which is $P$'s individual ability to survive in prison.
+
+We can then expand the equations as
+
+\begin{equation}
+\begin{split}
+\alpha (n+1) s - \tau &\geq s\\
+[\alpha (n+1) -1] s &\geq \tau\\
+s \geq \frac{\tau}{\alpha (n+1) -1} & = s^*(\tau)
+\end{split}
+\end{equation}
+
+All prisoners with $s \geq s^*(\tau)$ will try to enter the gang. Notice that
+
+\begin{align}
+\frac{ds^*(\tau)}{d\tau} = \frac{1}{\alpha (n+1) -1} > 0
+\end{align}
+
+Thus, the proportion of prisoners that intend to join the gang shrinks as the leadership raises the fee. In such a scenario, $G$ can choose qualified candidates only by increasing the entry barriers. 
+
+Let us now consider that $\tau = \underline{\tau} + t$, where $\underline{\tau}$ is an exogenous cost of joining the gang. To illustrate this situation, imagine that police forces might initiate a crackdown on the prison gang, or that there is a dispute between two different gangs in the same jail. In such a scenario, $t$ is the share of the cost that $G$ imposes in the selection process. The idea is to raise the level of its members, since more skills are needed. $G$ will choose a value of $\tau$ that maximises its revenues and skills. This is given by
+
+\begin{align}
+\alpha (n(s^*(\underline{\tau} + t))) \times (1-s^*(\underline{\tau} +t)) \times E(s^*(\underline{\tau} + t))
+\end{align}
+
+In which the first part of the equation is the effect caused by the productivity parameter, the second part is the proportion of prisoners that are accepted in the gang and the third the expected productivity of the gang as a whole. Furthermore, as the number of members is always decided by criteria of optimising the productivity $\alpha(n)$, we can without loss of generality change it by $\alpha^*$. Thus, the gang optimises the ex-post utility by maximising the following equation
+
+\begin{equation}
+\begin{split}
+\max_{t \geq 0} \{ \alpha^* \times (1-s^*(\underline{\tau} +t)) \times E(s^*(\underline{\tau} + t)) \} \\
+s^*(t) = \frac{1}{3}
+\end{split}
+\end{equation}
+
+And solving for $t$ we have that
+
+\begin{equation}
+\begin{split}
+t^* = \frac{1}{3}(\alpha^*-1) - \underline{\tau}
+\end{split}
+\end{equation}
+
+And therefore, the duple $t^*$ and $s^*(t^*)$ solves the game for the Gang and the Prisoner, respectively.
+% Is "duple" deliberate?
+This equilibrium has interesting qualitative properties:
+
+\begin{enumerate}
+\item All prisoners with $$ s \geq s^*  = \frac{\underline{\tau} + t^* }{\alpha (n + 1) - 1}$$
+
+Will join the prison gang $G$.
+
+\item $t^* = 0$, when the exogenous shocks are high
+
+\item $t^* > 0$ when there are many prisoners trying to join $G$, or when $\underline{\tau}$ is low. When a high number of prisoners are willing to join the prison gang, it can be inferred that low-skilled inmates will also apply and get the spot.
+
+\item $n^*$ maximises the ex-post benefit for the gang. The reason is that, given that $t^*$ have already been chosen, the only preoccupation for the gang is its productivity increase. As long as the new member $P$ can raise $G$'s productivity levels, the gang will accept him.
+
+\item $t^*$ maximises the ex-ante utility for the gang. The reasoning behind it is that the gang can control the admission of prisoners by selecting only inmates with high values of $s^*$.
+\end{enumerate}
+
+Now, consider the situation when we add the informant. The informant acts as a probability of finding out the true value of $s$ of a given applicant. Let this probability be denoted by $\pi$, when the complement means that the information is wrong.
+
+The timeline for the second game goes as follows.
+
+\begin{enumerate}
+\item Nature chooses the skills of the prisoner $P$, with $s \sim U[0,1]$.
+
+\item The gang leader chooses $t^$.
+
+\item The prisoner decides to apply or not to the gang. If not, the game ends. If yes, the game follows to the next stage.
+
+\item With probability $\pi$ the gang leader finds out the true type of the prisoner. With probability $1-\pi$ the gang leader does not discover this information.
+
+\item Finally, the gang leader then decides to accept or reject the proposal.
+\end{enumerate}
+
+Adding this new feature to the previous game empowers the gang leader by giving him a better screening process, where he can combine fees and a selection upon the revealing of the quality parameter by the informant.
+
+Solving the game backwards we have that the gang accepts an offer ex-post, choosing $t$ whenever
+
+\begin{align}
+\alpha (n+1)S + \alpha (n+1) \left[\pi s + (1-\pi) E[s*|t] \right] \geq \alpha (n)S
+\end{align}
+
+Where $S$ is the sum of the abilities of all current gang members. Solving this equation we have that the gang accepts ex-post the new member when
+
+\begin{align}
+s \geq \frac{S}{\pi} \left[\dfrac{\alpha(n)-\alpha(n+1)}{\alpha(n+1)}\right] - \dfrac{1-\pi}{\pi}\left[\dfrac{1-s^*(t)^2}{2}\right] = s^{**}
+\end{align}
+
+This equation means that there will be a new limit, $s^{**}$ that indicates, upon receiving the information of the productivity of the prisoner, the gang decides to impose a higher threshold. This means that $s^{**} > s^*(t)$. The qualitative difference that this will generate is that the gang now can select more skilled prisoners without having to raise the fees $t$. 
+
+In the sequence, the prisoner asks to join the gang if and only if
+
+\begin{equation}
+\begin{split}
+U_P[Comply] &\geq U_P[Defect]\\
+\alpha (n + 1) s - \tau &\geq s \\
+s \geq \frac{\underline{\tau}+t}{\alpha (n+1) - 1} &= s^*(t)
+\end{split}
+\end{equation}
+
+Which is the same as in the previous model. Finally, the ex-ante optimum for the gang will be to set the fees to zero. This is because when there are informants in the process we have that the ex-ante value the gang maximises is equal to 
+
+\begin{equation}
+\begin{split}
+\max_{t \geq 0} \{ \alpha^* \times (\pi(1-s^{**})\int_{s^{**}}^1 \sigma d\sigma + (1-\pi)(s^{**}-s^{*})\int_{s^{*}}^{s^{**}} \sigma d\sigma ) \}
+\end{split}
+\end{equation}
+
+And optimising $t$ in this expression leads us to 
+
+\begin{align}
+t = \left(-\frac{s^{**}}{3} - \underline{\tau} \right) (\alpha^*-1)
+\end{align}
+
+And as $t<0$, $t^*=0$ for all parameters, as long as $s^{**}>s^*$.
+
+For the model above, we have the following qualitative properties:
+
+\begin{enumerate}
+\item Information minimises the use of entry barriers by the prison gang;
+
+\item The quality of the information ($\pi$) provided by the informer $I$ also matters. We see that $\pi$ has a positive impact on $s^{**}$, as $\frac{ds^{**}}{d\pi} > 0$. In a nutshell, it is easy to observe that the more (and better) the information available, the more precise the screening process;
+
+\item In the present model, the proportion of prisoners remains the same;
+
+\item However, the difference we observe here is that the gang now has a much more qualified cadre. If $G$ is capable of extracting good, reliable information, it has a significant impact on the abilities of the selected members.
+\end{enumerate}
+
+\subsection{Comparison between Models}
+
+The first and more important difference between models 1 and 2 is that in the latter the selection process is notably more sophisticated. The use of information, here designed by $\pi$, helps the gang to choose more qualified members to add to its ranks.
+
+When we reach the limit satisfaction, that is when $\pi \rightarrow 1$ (when the gang's information on the given prisoner is precise and sufficient), the revenue for the gang is clearly maximised. In a nutshell, for a prison gang, information is a very necessary good, certainly crucial for it to recruit the correct prisoner\footnote{The true role of information may be distorted in these conclusions, but note that $\pi$ also changes the second threshold $s^{**}$. This makes information the key to the last result.}.
+
+In the first model, one may observe that $t^* \geq 0$, whereas in the second one $t^*=0$. This is a result of information, which is enough to deter unskilled prisoners from entering the gang.
+
+Interestingly, it is not only $G$ that has a benefit increase when information is added to the model. For $P$, adding information to the selection process eliminates the cost $t^*$, thus reducing the loss for the inmate.
+
+Another interesting point is that such a result holds for general $\alpha^*$ values as long as we consider that $\alpha(n)$ has the characteristics assumed in the text. If we assume that $\alpha$ reaches a point where it starts to generate benefits lower than $1$, some prisoners will prefer to ``go it alone'' and not join the prison group. Obviously, the most skilled prisoners will be these ones that shall run alone and the others may free ride, as they are less skilled and can free ride on the group's productivity.
+
+Finally, if we consider the possibility of a lower threshold $\underline{s}$ under which the gang prefers to refuse a prospective member, if $s^* < \underline{s}$, there is the possibility that the gang is indifferent for that choice. In the informer's equilibrium, there is a $\pi$ probability that the inmates will get caught by a third party (the police forces or a rival gang in our example), and shall not join the gang. This measure avoids the fact that the gang leadership would become weaker.
+
+\section{Discussion}
+
+The model has three important findings. First, it shows that a prison gang uses the value of its initial costs as a first selection method, since only skillful prisoners will be able to comply with the gang's demands if the costs are too high. Although useful, this procedure generates costs for both the prisoner and the gang. For the prisoner, it is necessary to spend long periods of time displaying all the abilities required by the gang, which may lead to an increasing lack of interest for the criminal. The gang also has to bear costs, since the process of establishing and enforcing a high threshold demands considerable human and financial resources from the group. In order to reduce such gang costs, the group can make use of informers. With an informer, the gang can keep entry costs lower, thus attracting a large pool of applicants while still being able to select competent candidates for the job. 
+
+Second, there are cases in which joining a prison gang is not the best option for an inmate. When the detainee has enough skills to endure prison conditions by himself, he might be better off if he decides to ``go it alone'' and devote his ability exclusively to his own survival. If a prison gang decides to lower its threshold to admit a higher number of members, a competent criminal will have his individual benefit reduced. Since the collective goods provided by the gang would be divided amongst several detainees, his net benefit would be lower than in the previous stage, where the selection process was stricter. However, the gang can eliminate this loss by raising the bar for admission, so that qualified criminals will only share the collective goods with those who can contribute to the group's welfare as much as they do. 
+
+Third, the model confirms the idea that the prison gang is not only a ``school of crime'', but perhaps most importantly, a highly effective screening device \citep[]{gambetta2009codes}. If a given prisoner knows that the admission to a certain gang is difficult to obtain, as soon as he manages to join the gang he can identify peers who are at least as skillful (and trustworthy) as he is. Therefore, prison gang membership solves one of the most critical issues of the criminal underworld, that of \textit{peer identification}. If a prison gang's admission process is deemed satisfactory by the prisoners, then when an inmate joins the gang he sends a signal that only true criminals could afford to send, thus dramatically reducing the chances that he might be a snitch. This also has the benefit of reducing violence between criminals, as they do not have to constantly ``test'' each others' integrity or to use violence as a communicative means to express one's toughness. Prison gangs thereby increase the welfare of the inmates by providing an extremely valuable public good: reliable information.
+
+Finally, it should also be noted that this study can be expanded in several ways. The model shown here  has to be tested with qualitative information from prison gangs in order to gain external validity. Moreover, due to serious lack of data on the topic, I was not able to incorporate the state dimension into the model. By including corrupt prison officers and weak public institutions to our formal analysis one could make the model even more realistic and derive more robust predictions from subsequent findings. 
+
+\section*{Acknowledgements}
+The author would like to thank Ravi Bhavnani, Guilherme Duarte, Mira Fey, Robert McDonnell, and Umberto Mignozzetti for their helpful comments and suggestions. The usual disclaimer applies.
+
+\section*{Declaration of Conflicting Interest}
+The author declares that there is no conflict of interest.
+
+\section*{Funding Statement}
+This research received no specific grant from any funding agency in the public, commercial, or not-for-profit sectors.
+
+\theendnotes
+
+\bibliographystyle{agsm}
+\bibliography{bibliography}
+\end{document}

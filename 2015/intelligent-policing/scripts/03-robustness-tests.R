@@ -41,7 +41,7 @@ dataprep.out1 <-
                  controls.identifier   = c(11:17, 21:27, 31:33, 41:43, 50:53),
                  time.predictors.prior = c(1990:1994),                 
                  time.optimize.ssr     = c(1990:1994),
-                 time.plot             = c(1990:2009)
+                 time.plot             = c(1990:1998)
                  )
 
 # Run synth
